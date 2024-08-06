@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DCDIUM Careers</title>
+
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f7f7f7;
+      }
+
+      .nav {
+        width: 1800px;
+        background-color: #1f91ce;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        border-radius: 5px 5px 0 0;
+      }
+
+      .nav .logo {
+        display: flex;
+        align-items: center;
+        color: #fff;
+        font-weight: bold;
+        font-size: 24px;
+      }
+
+      .nav .logo img {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+      }
+
+      .nav ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .nav ul li {
+        margin-left: 30px;
+      }
+
+      .nav ul li a {
+        text-decoration: none;
+        color: #eee;
+        font-size: 16px;
+        font-weight: bold;
+        transition: color 0.3s ease;
+        margin-left: 50px;
+      }
+
+      .nav ul li a:hover {
+        color: #b8b8b8;
+      }
+
+      .frontimg {
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+      }
+
+      img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+      }
+
+      .cards {
+        width: 80%;
+        margin: auto;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-top: 20px; /* Added margin to separate from the image */
+      }
+
+      .title {
+        height: 70px;
+        text-align: center;
+        line-height: 70px;
+        font-size: 32px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #1f91ce;
+        color: #fff;
+        margin-bottom: 20px;
+      }
+
+      .cont {
+        width: 90%;
+        margin: 30px auto;
+        display: grid;
+        gap: 20px;
+        row-gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        justify-content: space-around;
+      }
+
+      .card,
+      .cardss {
+        width: 100%;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        transition: transform 0.3s ease, opacity 0.3s ease,
+          transform-origin 0.3s ease;
+        animation: fadeInUp 0.5s ease-out, scaleIn 0.5s ease-out;
+        overflow: hidden;
+        position: relative;
+        transform-origin: center bottom;
+      }
+
+      .card:hover,
+      .cardss:hover {
+        transform: translate(20px, -20px) scale(1.05);
+      }
+
+      .card .headline,
+      .cardss .headliness {
+        margin: 15px 0;
+        width: 100%;
+        height: 60px;
+        text-align: center;
+        font-size: 24px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin-top: 40px;
+      }
+
+      .card .text,
+      .cardss .textss {
+        margin: auto auto;
+        width: 90%;
+        text-align: center;
+        padding: 10px;
+        font-size: 16px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .card-details,
+      .card-details {
+        padding: 20px;
+        background-color: #f5f5f5;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .card-details p,
+      .card-details p {
+        margin: 8px 0;
+        font-size: 14px;
+      }
+
+      .apply-btn,
+      .apply-btn {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 12px 24px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 15px;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+
+      .apply-btn:hover,
+      .apply-btn:hover {
+        background-color: #45a049;
+      }
+
+      .vacancies {
+        width: 80%;
+        margin: auto;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        margin-top: 20px;
+      }
+
+      .vacancies .title {
+        height: 70px;
+        text-align: center;
+        line-height: 70px;
+        font-size: 32px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #1f91ce;
+        color: #fff;
+        margin-bottom: 20px;
+      }
+
+      .vacancies .cont {
+        width: 90%;
+        margin: 30px auto;
+        display: grid;
+        gap: 20px;
+        row-gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        justify-content: space-around;
+      }
+
+      .vacancy-card {
+        width: 100%;
+        background-color: #fff;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        transition: transform 0.3s ease, opacity 0.3s ease,
+          transform-origin 0.3s ease;
+        animation: fadeInUp 0.5s ease-out, scaleIn 0.5s ease-out;
+        overflow: hidden;
+        position: relative;
+        transform-origin: center bottom;
+      }
+
+      .vacancy-card:hover {
+        transform: translate(20px, -20px) scale(1.05);
+      }
+
+      .vacancy-card .headline {
+        margin: 15px 0;
+        width: 100%;
+        height: 60px;
+        text-align: center;
+        font-size: 24px;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin-top: 40px;
+      }
+
+      .vacancy-card .text {
+        margin: auto auto;
+        width: 90%;
+        text-align: center;
+        padding: 10px;
+        font-size: 16px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+
+      .vacancy-card-details {
+        padding: 20px;
+        background-color: #f5f5f5;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .vacancy-card-details p {
+        margin: 8px 0;
+        font-size: 14px;
+      }
+
+      .vacancy-apply-btn {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 12px 24px;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 15px;
+        border-radius: 5px;
+        font-size: 16px;
+        transition: background-color 0.3s ease;
+      }
+
+      .vacancy-apply-btn:hover {
+        background-color: #45a049;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateX(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes scaleIn {
+        from {
+          transform: scale(0.9);
+        }
+        to {
+          transform: scale(1);
+        }
+      }
+      footer {
+        background-color: #1f91ce;
+        color: #fff;
+        text-align: center;
+        padding: 20px 0;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        margin-top: 30px;
+      }
+
+      footer p {
+        margin: 0;
+      }
+    </style>
+  </head>
+
+  <body>
+    <section class="head">
+      <div class="nav">
+        <div class="logo">
+          <img src="logo.png" alt="Company Logo" />
+          <span>DCDIUM TECHNOLOGIES</span>
+        </div>
+        <ul>
+          <li><a href="home">Home</a></li>
+          <li><a href="About">About</a></li>
+          <li><a href="Contact">Contact</a></li>
+          <li><a href="Blog">Blog</a></li>
+        </ul>
+      </div>
+
+      <div class="frontimg">
+        <img
+          src="https://img.freepik.com/premium-photo/online-job-search-modish-website-worker-search-job-opportunities_31965-60442.jpg"
+          alt=""
+        />
+      </div>
+    </section>
+
+    <section class="cards">
+      <div class="title">
+        <h1>Explore Exciting Opportunities at DCDIUM</h1>
+      </div>
+
+      <div class="cont">
+        <!-- Software Development Card -->
+        <div class="card">
+          <div class="headline">Software Development</div>
+          <div class="text">
+            Our team of experienced software developers works closely with our
+            clients to understand their unique needs and requirements,
+            developing customized software solutions that meet those needs.
+          </div>
+        </div>
+
+        <!-- Cybersecurity Card -->
+        <div class="card">
+          <div class="headline">Cybersecurity</div>
+          <div class="text">
+            Protect your business from cyber threats with our cybersecurity
+            services. We offer assessments, monitoring, and incident response to
+            keep your data and systems secure.
+          </div>
+        </div>
+
+        <!-- Corporate Training Card -->
+        <div class="card">
+          <div class="headline">Corporate Training</div>
+          <div class="text">
+            Maximize your team's potential with our corporate training services.
+            We offer custom programs in leadership, communication, and technical
+            skills to meet your business needs.
+          </div>
+        </div>
+
+        <!-- Digital Marketing Card -->
+        <div class="card">
+          <div class="headline">Digital Marketing</div>
+          <div class="text">
+            Streamline your hiring process with our manpower consultancy
+            services. Seamlessly integrating innovation and analytics, we
+            empower businesses to thrive in the dynamic digital landscape.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="vacancies">
+      <div class="title">
+        <h1>Current Vacancies</h1>
+      </div>
+
+      <div class="cont">
+        <!-- Front-End Developer Vacancy -->
+        <div class="vacancy-card">
+          <div class="headline">Front-End Developer</div>
+          <div class="text">
+            Join us as a Front-End Developer and contribute to building
+            user-friendly interfaces. Use your skills in HTML, CSS, and
+            JavaScript to create responsive and visually appealing websites.
+          </div>
+          <div class="vacancy-card-details">
+            <p><strong>Location:</strong> Delhi, India</p>
+            <p><strong>Salary:</strong> Competitive</p>
+            <p><strong>Experience:</strong> 4+ years</p>
+            <a href="#" class="vacancy-apply-btn">Apply Now</a>
+          </div>
+        </div>
+
+        <!-- Back-End Developer Vacancy -->
+        <div class="vacancy-card">
+          <div class="headline">Back-End Developer</div>
+          <div class="text">
+            We are looking for a Back-End Developer to build scalable and
+            efficient server-side applications. Familiarity with database
+            systems and web servers is a plus.
+          </div>
+          <div class="vacancy-card-details">
+            <p><strong>Location:</strong> Mumbai, India</p>
+            <p><strong>Salary:</strong> Competitive</p>
+            <p><strong>Experience:</strong> 3+ years</p>
+            <a href="#" class="vacancy-apply-btn">Apply Now</a>
+          </div>
+        </div>
+
+        <!-- UX/UI Designer Vacancy -->
+        <div class="vacancy-card">
+          <div class="headline">UX/UI Designer</div>
+          <div class="text">
+            Exciting opportunity for a UX/UI Designer to create visually
+            appealing and intuitive user interfaces. Bring your creativity to
+            enhance user experience.
+          </div>
+          <div class="vacancy-card-details">
+            <p><strong>Location:</strong> Mumbai, India</p>
+            <p><strong>Salary:</strong> Competitive</p>
+            <p><strong>Experience:</strong> 2+ years</p>
+            <a href="#" class="vacancy-apply-btn">Apply Now</a>
+          </div>
+        </div>
+
+        <!-- Data Scientist Vacancy -->
+        <div class="vacancy-card">
+          <div class="headline">Data Scientist</div>
+          <div class="text">
+            Join our team as a Data Scientist to analyze complex datasets and
+            provide insights. Experience in machine learning and statistical
+            modeling is essential.
+          </div>
+          <div class="card-details">
+            <p><strong>Location:</strong> Pune, India</p>
+            <p><strong>Salary:</strong> Competitive</p>
+            <p><strong>Experience:</strong> 5+ years</p>
+            <a href="#" class="apply-btn">Apply Now</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <footer>
+        <p>&copy; 2024 DCDIUM Technologies. All rights reserved.</p>
+        <p>Address: 123 Main St, Cityville, Country</p>
+        <p>Email: info@dcdiumtech.com | Phone: +1 (555) 123-4567</p>
+      </footer>
+    </section>
+  </body>
+</html>
